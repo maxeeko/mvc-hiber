@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+</head>
+<body>
+<!-- Шаблон для страницы пользователя -->
+<table>
+    <tbody>
+    <tr>
+        <td>Id:</td>
+        <td th:text="${user.id}"></td>
+    </tr>
+    <tr>
+        <td>Name:</td>
+        <td th:text="${user.name}"></td>
+    </tr>
+    <tr>
+        <td>Surname:</td>
+        <td th:text="${user.surname}"></td>
+    </tr>
+    <tr>
+        <td>Email:</td>
+        <td th:text="${user.email}"></td>
+    </tr>
+    <tr>
+        <td>Phone Number:</td>
+        <td th:text="${user.phoneNumber}"></td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<a th:href="@{/users/{id}/edit(id=${user.id})}">Edit</a>
+<br>
+<form th:method="DELETE" th:action="@{/users/{id}(id=${user.id})}">
+    <input type="submit" value="Delete"/>
+</form>
+<br>
+<a th:href="@{/users}">Back</a>
+</body>
+</html>
